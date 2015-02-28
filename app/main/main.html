@@ -1,17 +1,11 @@
-<div layout="column">
+<div layout="vertical" layout-fill>
   <section layout="row" flex>
-    <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$media('gt-md')">
+    <md-sidenav class="site-sidenav md-sidenav-left md-whiteframe-z2 md-locked-open" md-component-id="left" md-is-locked-open="true">
       <md-toolbar class="md-theme-indigo">
-        <h1 class="md-toolbar-tools">Sidenav Left</h1>
+        <h1 class="md-toolbar-tools">Bloomberg App</h1>
       </md-toolbar>
-      <md-content class="md-padding" ng-controller="LeftCtrl">
-        <md-button ng-click="close()" class="md-primary" hide-gt-md>
-          Close Sidenav Left
-        </md-button>
-        <p hide-md show-gt-md>
-          This sidenav is locked open on your device. To go back to the default behavior,
-          narrow your display.
-        </p>
+      <md-content class="md-padding">
+
       </md-content>
     </md-sidenav>
     <md-content flex class="md-padding">

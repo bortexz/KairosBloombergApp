@@ -3,7 +3,9 @@
   "main": "index.html",
   "window": {
     "toolbar": true,
-    "width": 800,
-    "height": 600
+    "width": 1100,
+    "height": 700,
+    "min_width": 800,
+    "min_height": 600
   }
 }
