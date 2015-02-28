@@ -7,10 +7,15 @@ angular.module('Bloomberg',['ngMaterial', 'ui.router']).config(function($statePr
     templateUrl:'main/main.html',
     controller:'mainCtrl'
   })
-    .state('main.home', {
-      url:'/home',
-      templateUrl: 'home/home.html',
-      controller: 'homeCtrl'
+    .state('main.start', {
+      url:'/start',
+      templateUrl: 'start/start.html',
+      controller: 'startCtrl'
+    })
+    .state('main.game', {
+      url: '/game',
+      templateUrl: 'game/game.html',
+      controller: 'gameCtrl'
     });
 
   $urlRouterProvider.otherwise('/main/home');
