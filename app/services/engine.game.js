@@ -1,7 +1,7 @@
 /**
  * Created by alberto on 1/3/15.
  */
-angular.module('Bloomberg').service('GameEngine', function(Bloomberg) {
+angular.module('Bloomberg').service('GameEngine', function(BloombergApi) {
   var state = {
     punctuation: 0,
     current_clue: 0,

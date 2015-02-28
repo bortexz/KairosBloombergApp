@@ -1,0 +1,49 @@
+<div id="securityfield" layout="row">
+	GOOGLE
+</div>
+
+<script>
+  var chart_0 = c3.generate({
+    bindto: '#chart_0',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+      ]
+    }
+	});
+	var chart_1 = c3.generate({
+    bindto: '#chart_1',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+      ]
+    }
+	});
+	var chart_2 = c3.generate({
+    bindto: '#chart_2',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+      ]
+    }
+	});
+	var chart_3 = c3.generate({
+    bindto: '#chart_3',
+    data: {
+      columns: [
+        ['data1', 30, 200, 100, 400, 150, 250],
+        ['data2', 50, 20, 10, 40, 15, 25]
+      ]
+    }
+	});
+</script>
+
+<div id="questionfield" layout="row">
+	<div flex id="chart_0"></div>
+	<div flex id="chart_1"></div>
+	<div flex id="chart_2"></div>
+	<div flex id="chart_3"></div>
+</div>

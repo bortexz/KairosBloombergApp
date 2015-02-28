@@ -4,5 +4,5 @@
 angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine) {
   $scope.game_state = GameEngine.game_state;
 
-  
+
 });
