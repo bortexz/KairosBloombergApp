@@ -18,5 +18,5 @@ angular.module('Bloomberg',['ngMaterial', 'ui.router']).config(function($statePr
       controller: 'gameCtrl'
     });
 
-  $urlRouterProvider.otherwise('/main/home');
+  $urlRouterProvider.otherwise('/main/start');
 });
