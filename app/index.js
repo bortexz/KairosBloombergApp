@@ -6,7 +6,12 @@ angular.module('Bloomberg',['ngMaterial', 'ui.router']).config(function($statePr
     url:'/main',
     templateUrl:'main/main.html',
     controller:'mainCtrl'
-  });
+  })
+    .state('main.home', {
+      url:'/home',
+      templateUrl: 'home/home.html',
+      controller: 'homeCtrl'
+    });
 
-  $urlRouterProvider.otherwise('/main');
+  $urlRouterProvider.otherwise('/main/home');
 });
