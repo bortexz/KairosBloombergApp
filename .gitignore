@@ -2,3 +2,4 @@ node-webkit/
 install.sh
 .idea/
 app.nw
+app/api_keys/
