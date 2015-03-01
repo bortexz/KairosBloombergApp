@@ -1,10 +1,48 @@
 /**
  * Created by alberto on 1/3/15.
  */
-angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine) {
-  //$scope.game_state = GameEngine.game_state;
-  GameEngine.startGame().then(function(dataChart) {
-    console.log(dataChart);
+angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine, $mdDialog) {
+  $scope.game_state = GameEngine.game_state;
+
+  $scope.spinner = true;
+
+  $scope.selected = function(index) {
+    var winn = GameEngine.check(index);
+
+    if(winn) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .title('SUCCESS!')
+          .content('You get this one!!')
+          .ok('NEXT')
+      ).then(function(){
+        getNextClue();
+      });
+    } else {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .title('Oops...')
+          .content('It isn\'t the real chart')
+          .ok('NEXT')
+      ).then(function(){
+          getNextClue();
+        });
+    }
+
+  };
+
+  function getNextClue() {
+    $scope.spinner = true;
+    GameEngine.getNextClue().then(function(dataGame) {
+      $scope.spinner = false;
+      printState(dataGame)
+    })
+  }
+
+  function printState(dataGame) {
+    var dataChart = dataGame.array_charts;
+    $scope.news = dataGame.news;
+    console.log(dataGame.news[0]);
 
     var chart_0 = c3.generate({
       bindto: '#chart_0',
@@ -38,6 +76,12 @@ angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine) 
         ]
       }
     });
+  }
+
+  GameEngine.startGame().then(function(dataGame) {
+    $scope.spinner = false;
+      printState(dataGame);
   });
 
+  $scope.spinner = true;
 });

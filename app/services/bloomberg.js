@@ -54,8 +54,53 @@ angular.module('Bloomberg').factory('BloombergApi', function($q) {
     return q.promise;
   }
 
+  function get_info_by_security(security) {
+    var q = $q.defer();
+    var host = "http-api.openbloomberg.com";
+    var port = 443;
+
+    var options = {
+      host: host,
+      port: port,
+      path: '/request?ns=blp&service=instruments&type=instrumentListRequest',
+      method: 'POST',
+      key: fs.readFileSync('api_keys/khacks_spring_2015_009.key'),
+      cert: fs.readFileSync('api_keys/khacks_spring_2015_009.crt'),
+      ca: fs.readFileSync('api_keys/bloomberg.crt')
+    };
+
+    var data = '';
+
+    var req = https.request(options, function(res) {
+
+      res.on('data', function(d) {
+        //console.log(d.toString());
+        data += d.toString();
+      });
+
+      res.on('end', function(d) {
+        q.resolve(data);
+      });
+    });
+
+    req.write(JSON.stringify( {
+      "query": security,
+      "yellowKeyFilter": "YK_FILTER_CORP",
+      "languageOverride": "LANG_OVERRIDE_NONE",
+      "maxResults": 10
+    }));
+    req.end();
+
+    req.on('error', function(e) {
+      console.error(e);
+    });
+
+    return q.promise;
+  }
+
   return {
-    get_historical_data_by_security: get_historical_data_by_security
+    get_historical_data_by_security: get_historical_data_by_security,
+    get_info_by_security: get_info_by_security
   }
 
 });

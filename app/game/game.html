@@ -1,39 +1,50 @@
 <br>
 
 <div id="securityfield" layout="row">
-	<md-content>
-		<md-toolbar>
-      <h2 class="md-toolbar-tools">
-        <span>{security.name}</span>
-      </h2>
-    </md-toolbar>
+	<md-content class="text-center">
+      <h1 class="md-toolbar-tools pull-right">
+        <span>{{game_state.current_security}}  - {{game_state.current_security_name}} - Which is the chart that corresponds to NASDAQ stock?</span>
+      </h1>
    </md-content>
+</div>
+
+<div id="spinner" ng-if="spinner">
+  <div layout="column" layout-align="center center" class="spinner-in">
+    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+  </div>
 </div>
 
 <br>
 <br>
-
 <div id="chartsfield" layout="row">
 	<div flex id="chart_0"></div>
 	<div flex id="chart_1"></div>
 	<div flex id="chart_2"></div>
 	<div flex id="chart_3"></div>
 </div>
+<div id="" layout="row">
+  <md-button flex ng-click="selected(1)">SELECT</md-button>
+  <md-button flex ng-click="selected(2)">SELECT</md-button>
+  <md-button flex ng-click="selected(3)">SELECT</md-button>
+  <md-button flex ng-click="selected(4)">SELECT</md-button>
+</div>
 
 <br>
 
-<div id="newsfield" layout="row">
+<div id="newsfield" layout="row" layout-fill class="news">
 	<md-content>
     <md-list>
-    	<md-item ng-repeat="item in todos">
+    	<md-item ng-repeat="item in news">
+        <md-card flex>
        	<md-item-content>
        		<div class="md-tile-content">
             <h3>{{item.title}}</h3>
             <p>
-              {{item.content}}
+              {{item.date | date: 'dd MM yyyy'}}
             </p>
           </div>
        	</md-item-content>
+        </md-card>
       </md-item>
     </md-list>
   </md-content>
