@@ -13,7 +13,7 @@ angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine, 
       $mdDialog.show(
         $mdDialog.alert()
           .title('SUCCESS!')
-          .content('You get this one!!')
+          .content('You got this one right!!')
           .ok('NEXT')
       ).then(function(){
         getNextClue();
@@ -22,7 +22,7 @@ angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine, 
       $mdDialog.show(
         $mdDialog.alert()
           .title('Oops...')
-          .content('It isn\'t the real chart')
+          .content('This isn\'t the real chart')
           .ok('NEXT')
       ).then(function(){
           getNextClue();
