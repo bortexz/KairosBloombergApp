@@ -2,7 +2,7 @@
   "name": "Bloomberg",
   "main": "index.html",
   "window": {
-    "toolbar": true,
+    "toolbar": false,
     "width": 1200,
     "height": 700,
     "min_width": 1200,

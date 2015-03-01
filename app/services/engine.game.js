@@ -32,8 +32,6 @@ angular.module('Bloomberg').service('GameEngine', function($q, Securities, Googl
     state.current_clue_index++;
     state.clue_result = _.shuffle([1,2,3,4]);
 
-
-
     var q = $q.defer();
     //select first company
     var security = Securities.getRandomSecurity();
@@ -92,9 +90,6 @@ angular.module('Bloomberg').service('GameEngine', function($q, Securities, Googl
         //BloombergApi.get_historical_data_by_security()
       });
     });
-
-
-
 
     return q.promise;
   }
