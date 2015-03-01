@@ -107,7 +107,7 @@ angular.module('Bloomberg').factory('Securities', function($q, BloombergApi, Goo
   ];
 
   function getRandomSecurity() {
-    return Math.floor(Math.random()*securities.length);
+    return securities[Math.floor(Math.random()*securities.length)];
   }
 
   return {

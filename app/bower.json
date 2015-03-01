@@ -28,6 +28,7 @@
     "bootstrap": "~3.3.2",
     "angular-material": "~0.8.2",
     "angular-ui-router": "~0.2.13",
-    "c3": "~0.4.9"
+    "c3": "~0.4.9",
+    "lodash": "~3.3.1"
   }
 }
