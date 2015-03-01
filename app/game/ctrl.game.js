@@ -42,7 +42,6 @@ angular.module('Bloomberg').controller('gameCtrl', function($scope, GameEngine, 
   function printState(dataGame) {
     var dataChart = dataGame.array_charts;
     $scope.news = dataGame.news;
-    console.log(dataGame.news[0]);
 
     var chart_0 = c3.generate({
       bindto: '#chart_0',

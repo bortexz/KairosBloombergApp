@@ -11,7 +11,6 @@ angular.module('Bloomberg').service('GameEngine', function($q, Securities, Googl
   };
 
   function check(index) {
-
     if(state.clue_result[index-1] === 1) {
       state.punctuation++;
       return true;
