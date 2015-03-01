@@ -1,49 +1,40 @@
+<br>
+
 <div id="securityfield" layout="row">
-	GOOGLE
+	<md-content>
+		<md-toolbar>
+      <h2 class="md-toolbar-tools">
+        <span>GOOGLE</span>
+      </h2>
+    </md-toolbar>
+   </md-content>
 </div>
 
-<script>
-  var chart_0 = c3.generate({
-    bindto: '#chart_0',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
-	});
-	var chart_1 = c3.generate({
-    bindto: '#chart_1',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
-	});
-	var chart_2 = c3.generate({
-    bindto: '#chart_2',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
-	});
-	var chart_3 = c3.generate({
-    bindto: '#chart_3',
-    data: {
-      columns: [
-        ['data1', 30, 200, 100, 400, 150, 250],
-        ['data2', 50, 20, 10, 40, 15, 25]
-      ]
-    }
-	});
-</script>
+<br>
+<br>
 
-<div id="questionfield" layout="row">
+<div id="chartsfield" layout="row">
 	<div flex id="chart_0"></div>
 	<div flex id="chart_1"></div>
 	<div flex id="chart_2"></div>
 	<div flex id="chart_3"></div>
+</div>
+
+<br>
+
+<div id="newsfield" layout="row">
+	<md-content>
+    <md-list>
+    	<md-item ng-repeat="item in todos">
+       	<md-item-content>
+       		<div class="md-tile-content">
+            <h3>{{item.title}}</h3>
+            <p>
+              {{item.content}}
+            </p>
+          </div>
+       	</md-item-content>
+      </md-item>
+    </md-list>
+  </md-content>
 </div>
