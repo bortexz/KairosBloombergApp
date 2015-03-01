@@ -1,7 +1,8 @@
 /**
  * Created by alberto on 1/3/15.
  */
-angular.module('Bloomberg').service('GameEngine', function(BloombergApi) {
+angular.module('Bloomberg').service('GameEngine', function($scope, $q, Securities) {
+
   var state = {
     punctuation: 0,
     current_clue: 0,
@@ -11,14 +12,21 @@ angular.module('Bloomberg').service('GameEngine', function(BloombergApi) {
   function startGame() {
     state.punctuation = 0;
     state.current_clue = 0;
+    return getNextClue();
   }
 
   function getNextClue() {
+    var q = $q.defer();
     //select first company
+
+    //api call to get news
 
     //api call to get data
 
-    //api call to get
+
+
+
+    return q.promise;
   }
 
   return {

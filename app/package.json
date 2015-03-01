@@ -7,5 +7,8 @@
     "height": 700,
     "min_width": 800,
     "min_height": 600
+  },
+  "dependencies": {
+    "google-finance": "^0.1.4"
   }
 }

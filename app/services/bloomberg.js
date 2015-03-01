@@ -1,11 +1,13 @@
 /**
  * Created by alberto on 28/2/15.
  */
-angular.module('Bloomberg').factory('BloombergApi', function() {
+angular.module('Bloomberg').factory('BloombergApi', function($q) {
 
-  function make_request() {
-    var https = require('https');
-    var fs = require('fs');
+  var https = require('https');
+  var fs = require('fs');
+
+  function get_historical_data_by_security(security, from, to) {
+    var q = $q.defer();
 
     var host = "http-api.openbloomberg.com";
     var port = 443;
@@ -23,8 +25,8 @@ angular.module('Bloomberg').factory('BloombergApi', function() {
     var data = '';
 
     var req = https.request(options, function(res) {
-      console.log("statusCode: ", res.statusCode);
-      console.log("headers: ", res.headers);
+      //console.log("statusCode: ", res.statusCode);
+      //console.log("headers: ", res.headers);
 
       res.on('data', function(d) {
         //console.log(d.toString());
@@ -32,15 +34,15 @@ angular.module('Bloomberg').factory('BloombergApi', function() {
       });
 
       res.on('end', function(d) {
-        console.log(JSON.parse(data));
+        q.resolve(data);
       });
     });
 
-    req.write(JSON.stringify( {
-      "securities": ["IBM US Equity", "AAPL US Equity"],
+    req.write(JSON.stringify({
+      "securities": [security + " US Equity"],
       "fields": ["PX_LAST", "OPEN", "EPS_ANNUALIZED"],
-      "startDate": "20120101",
-      "endDate": "20120301",
+      "startDate": from || "20150201",
+      "endDate": to || "20150301",
       "periodicitySelection": "DAILY"
     }));
     req.end();
@@ -48,10 +50,12 @@ angular.module('Bloomberg').factory('BloombergApi', function() {
     req.on('error', function(e) {
       console.error(e);
     });
+
+    return q.promise;
   }
 
   return {
-    make_request: make_request
+    get_historical_data_by_security: get_historical_data_by_security
   }
 
 });
